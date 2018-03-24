@@ -1,0 +1,128 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+    transition: FadeTransition()
+    MainScreen:
+    AudioScreen:
+    VideoScreen:
+
+<MainScreen>:
+    name: "main"
+    FloatLayout:
+        Label:
+            color: 0, 0, 0, 1
+            text: "Pick a type to convert"
+            font_size: 25
+            size_hint: 0.8, 0.1
+            pos_hint: {"x": 0.1, "top": 1}
+        Button:
+            on_release: app.root.current = "audio"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x": 0.2, "top": 0.9}
+            Image:
+                source: "./png/003.PNG"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+        Button:
+            on_release: app.root.current = "video"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x": 0.2, "top": 0.6}
+            Image:
+                source: "./png/002.PNG"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+        Button:
+            on_release: app.stop()
+            size_hint: 0.6, 0.2
+            pos_hint: {"x": 0.2, "top": 0.3}
+            Image:
+                source: "./png/004.PNG"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+<AudioScreen>:
+    name: "audio"
+    FloatLayout:
+        Label:
+            text: "Pick a type you want"
+            color: 0, 0, 0, 1
+            font_size: 25
+            size_hint: 0.8, 0.1
+            pos_hint: {"x": 0.1, "top": 1}
+        Button:
+            on_release: app.root.current = "main"
+            size_hint: 0.35, 0.3
+            pos_hint: {"x": 0.55, "top": 0.4}
+            Image:
+                source: "./png/005.PNG"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.AudioFunction().to_mp3()
+            text: "mp3"
+            font_size: 25
+            size_hint: 0.35, 0.3
+            pos_hint: {"x": 0.55, "top": 0.8}
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.AudioFunction().to_wav()
+            text: "wav"
+            font_size: 25
+            size_hint: 0.35, 0.3
+            pos_hint: {"x": 0.1, "top": 0.8}
+
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.AudioFunction().to_ogg()
+            text: "ogg"
+            font_size: 25
+            size_hint: 0.35, 0.3
+            pos_hint: {"x": 0.1, "top": 0.4}
+
+<VideoScreen>:
+    name: "video"
+    FloatLayout:
+        Label:
+            color: 0, 0, 0, 1
+            text: "Pick a type you want"
+            font_size: 25
+            size_hint: 0.8, 0.1
+            pos_hint: {"x": 0.1, "top": 1}
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.VideoFunction().to_avi()
+            text: "avi"
+            font_size: 25
+            size_hint: 0.35, 0.2
+            pos_hint: {"x": 0.1, "top": 0.8}
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.VideoFunction().to_mp4()
+            text: "mp4"
+            font_size: 25
+            size_hint: 0.35, 0.2
+            pos_hint: {"x": 0.55, "top": 0.8}
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.VideoFunction().to_wmv()
+            text: "wmv"
+            font_size: 25
+            size_hint: 0.35, 0.2
+            pos_hint: {"x": 0.1, "top": 0.55}
+        Button:
+            on_release: app.root.current = "main"
+            size_hint: 0.8, 0.2
+            pos_hint: {"x": 0.1, "top": 0.3}
+            Image:
+                source: "./png/005.PNG"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+        Button:
+            color: 0, 1, 0, 1
+            on_release: app.VideoFunction().to_flv()
+            text: "flv"
+            font_size: 25
+            size_hint: 0.35, 0.2
+            pos_hint: {"x": 0.55, "top": 0.55}
