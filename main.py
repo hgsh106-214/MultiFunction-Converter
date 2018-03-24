@@ -122,34 +122,6 @@ class MainApp(App):
                 print("Convert failed")
             root.destroy()
 
-        def to_aac(self):
-            root = Tk()
-            try:
-                fileName = filedialog.askopenfilename(
-                    filetypes=(('MP3 files', "*.mp3"), ('WAV files', "*.wav"), ('M4A files', "*.m4a"),
-                               ('OGG files', "*.ogg"), ('FLV files', "*.flv"),
-                               ('MP4 files', "*.mp4"), ('WMV files', "*.wmv"), ("All files", "*.*")),
-                    title='Please select a file you want to convert')
-                dirname = filedialog.asksaveasfilename(filetypes=(('AAC files', "*.aac"), ("All files", "*.*")),
-                                                       title='Please select a directory to save')
-                if fileName[-3:] == "mp3":
-                    AudioSegment.from_mp3(fileName, "mp3").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "wav":
-                    AudioSegment.from_wav(fileName, "wav").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "ogg":
-                    AudioSegment.from_ogg(fileName, "ogg").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "m4a":
-                    AudioSegment.from_file(fileName, "m4a").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "mp4":
-                    AudioSegment.from_file(fileName, "mp4").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "flv":
-                    AudioSegment.from_file(fileName, "flv").export(dirname + ".aac", format="aac")
-                elif fileName[-3:] == "wmv":
-                    AudioSegment.from_file(fileName, "wmv").export(dirname + ".aac", format="aac")
-            except:
-                print("Convert failed")
-            root.destroy()
-
     class VideoFunction(App):
         def to_avi(self):
             root = Tk()
